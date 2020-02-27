@@ -17,7 +17,7 @@
  */
 function addRandomGreeting() {
   const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+      ["what's dead may never die", 'the north remembers', 'winter is coming'];
 
   // Pick a random greeting.
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
@@ -26,3 +26,11 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+function getPersonalizedQuote() {
+  fetch("/data").then(response => response.text()).then((quote) => {
+    document.getElementById('quote-container').innerText = quote;
+    console.log('Adding quote to dom: ' + quote);
+  });
+}
+
