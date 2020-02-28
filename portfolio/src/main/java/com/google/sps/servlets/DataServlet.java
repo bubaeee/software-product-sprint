@@ -17,6 +17,9 @@ package com.google.sps.servlets;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
 import java.util.ArrayList;
 import com.google.gson.Gson;
 import java.io.IOException;
@@ -34,15 +37,22 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     ArrayList<String> returning = new ArrayList<>();
-    returning.add("Bounty");
-    returning.add(" Twix");
-    returning.add(" Snickers");
-    returning.add(" Maltesers");
-    returning.add(" In that order");
+    //returning.add("Bounty");
+    //returning.add(" Twix");
+    //returning.add(" Snickers");
+    //returning.add(" Maltesers");
+    //returning.add(" In that order");
     
     //response.setContentType("text/html;");
     //response.getWriter().println("Hello Bubae!");
-    
+
+    Query query = new Query("Task");
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
+    for (Entity entity : results.asIterable()) {
+        returning.add((String) entity.getProperty("Comment"));
+    }
+
     Gson gson = new Gson();
     String json = gson.toJson(returning);
     
