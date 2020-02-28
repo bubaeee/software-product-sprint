@@ -26,6 +26,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet( "/data")
 public class DataServlet extends HttpServlet {
 
+    ArrayList<String> comments = new ArrayList<>();
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     ArrayList<String> returning = new ArrayList<>();
@@ -43,5 +45,31 @@ public class DataServlet extends HttpServlet {
     
     response.setContentType("application/json;");
     response.getWriter().println(json);
+  }
+
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Get the input from the form.
+    String text = getParameter(request, "comment-input", "");
+
+    comments.add(text);
+
+    // Respond with the result.
+    response.setContentType("text/html;");
+    response.getWriter().println(text);
+
+    System.out.println("comments added");
+    for (int i = 0; i < comments.size();i++) { 		      
+	    System.out.println(comments.get(i)); 		
+	}
+    //redirect back to portfolio
+    response.sendRedirect("/index.html");
+  }
+
+  private String getParameter(HttpServletRequest request, String comment, String defaultValue) {
+    String value = request.getParameter(comment);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
   }
 }
