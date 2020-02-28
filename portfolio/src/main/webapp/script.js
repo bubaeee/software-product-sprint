@@ -34,3 +34,13 @@ function getPersonalizedQuote() {
   });
 }
 
+function getReturning() {
+    console.log("starting");
+  fetch("/data").then(response => response.json()).then((quote) => {
+      const statsListElement = document.getElementById('quote-container');
+      document.getElementById('quote-container').innerText = quote;
+      console.log("checking");
+      console.log('Adding JSon: ' + quote);
+  });
+}
+
