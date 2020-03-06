@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWGbdZg-j14dUFx4lLHPebPhyw15kOqcw"></script>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body>
+
+  <body onload="initMap();">
     <div id="content">
       <h1>Bubae's Portfolio</h1>
       <marquee>This is Bubae's portfolio. Welcome !</marquee>
@@ -25,9 +27,15 @@
 
       <p> </p>
 
+      <h1>College Map</h2>
+      <p>Place the icon at your college campus. I go to Georgia Tech !</p>
+      <div id="map"></div>
+ 
+      <p> </p>
+
       <h1>Personalized Quote</h1>
       <p>Click here to see the personalized quote:</p>
-      <button onclick="getReturning()">Click on Me!</button>
+      <button onclick="addRandomGreeting()">Click on Me!</button>
       <div id="quote-container"></div>
       </div>
 
