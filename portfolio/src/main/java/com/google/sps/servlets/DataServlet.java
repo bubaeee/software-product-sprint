@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
-@WebServlet( "/data")
+@WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
     ArrayList<String> comments = new ArrayList<>();
@@ -37,14 +37,6 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     ArrayList<String> returning = new ArrayList<>();
-    //returning.add("Bounty");
-    //returning.add(" Twix");
-    //returning.add(" Snickers");
-    //returning.add(" Maltesers");
-    //returning.add(" In that order");
-    
-    //response.setContentType("text/html;");
-    //response.getWriter().println("Hello Bubae!");
 
     Query query = new Query("Task");
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -61,8 +53,6 @@ public class DataServlet extends HttpServlet {
   }
 
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // Get the input from the form.
-    //String text = getParameter(request, "comment-input", "");
 
     String text = request.getParameter("comment-input");
     Entity taskEntity = new Entity("Task");
@@ -71,11 +61,6 @@ public class DataServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(taskEntity);
 
-    // Respond with the result.
-    //response.setContentType("text/html;");
-    //response.getWriter().println(text);
-
-    //redirect back to portfolio
     response.sendRedirect("/index.html");
   }
 
