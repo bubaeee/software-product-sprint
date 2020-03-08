@@ -8,6 +8,12 @@
   margin-top: 20px;
 }
 
+#map {
+  border: thin solid black;
+  width: 70%;
+  height: 400px;
+}
+
 div.polaroid {
   margin-left: auto;
   margin-right: auto;
