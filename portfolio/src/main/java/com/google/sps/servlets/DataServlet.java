@@ -32,43 +32,43 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-    ArrayList<String> comments = new ArrayList<>();
-
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    ArrayList<String> returning = new ArrayList<>();
-
-    Query query = new Query("Task");
+   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    PreparedQuery results = datastore.prepare(query);
-    for (Entity entity : results.asIterable()) {
-        returning.add((String) entity.getProperty("Comment"));
-    }
+    System.out.println("hmm");
+    String title = request.getParameter("title");
+    System.out.println("title" + title);
+    String latLng =  request.getParameter("mapLat");
+    System.out.println(request.getParameter("mapLng"));
 
-    Gson gson = new Gson();
-    String json = gson.toJson(returning);
-    
-    response.setContentType("application/json;");
-    response.getWriter().println(json);
-  }
-
-  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-    String text = request.getParameter("comment-input");
     Entity taskEntity = new Entity("Task");
-    taskEntity.setProperty("Comment", text);
+    taskEntity.setProperty("title", title);
+    taskEntity.setProperty("latLng", latLng);
 
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(taskEntity);
 
-    response.sendRedirect("/index.html");
   }
 
-  private String getParameter(HttpServletRequest request, String comment, String defaultValue) {
-    String value = request.getParameter(comment);
-    if (value == null) {
-      return defaultValue;
-    }
-    return value;
-  }
+//   @Override
+//   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//     Query query = new Query("Task");
+
+//     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+//     PreparedQuery results = datastore.prepare(query);
+
+//     String toGet = request.getParameter("file");
+
+//     String savedCode = "//file not found :(";
+//     for (Entity entity : results.asIterable()) {
+//       String file = (String) entity.getProperty("filename");
+//       if (file.equals(toGet)) {
+//           savedCode = (String) entity.getProperty("code");
+//           break;
+//       }
+//     }
+
+//     Gson gson = new Gson();
+
+//     response.setContentType("application/json;");
+//     response.getWriter().write(gson.toJson(savedCode));
+//    }
 }

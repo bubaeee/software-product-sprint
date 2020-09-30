@@ -1,48 +1,539 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i');
+html,body{
+  margin:0;
+  height:120%;
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+/**header component*/
+a{
+  text-decoration:none
+}
+.header{
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  height:50vw;
+  min-height:400px;
+  max-height:550px;
+  min-width:300px;
+  color:#eee;
+}
+.header:after{
+  content:"";
+  width:100%;
+  height:100%;
+  position:absolute;
+  bottom:0;
+  left:0;
+  z-index:-1;
+ background: linear-gradient(to bottom, rgba(0,0,0,0.12) 40%,rgba(27,32,48,1) 100%);
+}
+.header:before{
+  content:"";
+  width:100%;
+  height:200%;
+  position:absolute;
+  top:0;
+  left:0;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0); backface-visibility: hidden;
+  scale(1.0, 1.0);
+    transform: translateZ(0);
+  background:#1B2030 url("images/bubs.jpg") 50% 0 no-repeat;
+  background-size:100%;
+  background-attachment:fixed;
+  animation: grow 200s  linear 10ms infinite;
+  transition:all 0.4s ease-in-out;
+  z-index:-2
+}
+.header a{
+  color:#eee
+}
+.menu{
+  display:block;
+  width:40px;
+  height:30px;
+  border:2px solid #fff;
+  border-radius:3px;
+  position:absolute;
+  right:20px;
+  top:20px;
+  text-decoration:none
+}
+.menu:after{
+  content:"";
+  display:block;
+  width:20px;
+  height:3px;
+  background:#fff;
+  position:absolute;
+  margin:0 auto;
+  top:5px;
+  left:0;
+  right:0;
+  box-shadow:0 8px, 0 16px
+}
+.logo{
+  border:2px solid#D5AD6D;
+  border-radius:3px;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  align-content:center;
+  margin:20px;
+  padding:0px 10px;
+  font-weight:900;
+  font-size:1.1em;
+  line-height:1;
+  box-sizing:border-box;
+  height:40px
+}
+.sides, .info{
+  flex: 0 0 auto;
+  width:50%
+}
+.info{
+  width:100%;
+  padding:15% 10% 0 10%;
+  text-align:center;
+  text-shadow:0 2px 3px rgba(0,0,0,0.2)
 }
 
-#greeting-container {
-  margin-top: 20px;
+.github{
+  display:inline-block;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  border:2px solid#D5AD6D;
+  background:url("/images/greygithub.png") center no-repeat;
+  background-size:cover;
+  position: absolute;
+  right:20px;
+  top:20px;
+  padding: 10px 10px;
+  align-content: right;
+}
+.linkedin{
+  display:inline-block;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  border:2px solid#D5AD6D;
+  background:url("/images/greylinkedin.png") center no-repeat;
+  background-size:cover;
+  position: absolute;
+  right:90px;
+  top:20px;
+  padding: 10px 10px;
+  align-content: right;
 }
 
-#map {
-  border: thin solid black;
-  width: 70%;
-  height: 400px;
+.info h4, .meta{
+  font-size:0.7em
+}
+.meta{
+  font-style:italic;
+}
+@keyframes grow{
+  0% { transform: scale(1) translateY(0px)}
+  50% { transform: scale(1.2) translateY(-400px)}
+}
+.content{  
+  padding:5% 10%;
+  text-align:left;
+  background-color: aliceblue;
+}
+.btn{
+  color:#333;
+  border:2px solid;
+  border-radius:3px;
+  text-decoration:none;
+  display:inline-block;
+  padding:5px 10px;
+  font-weight:600
 }
 
-div.polaroid {
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
+.twtr{
+  margin-top:100px
+}.btn.twtr:after{content:"\1F426";padding-left:5px}
+
+/**for typewriting option*/
+h2 {
+  border-right: solid 3px rgba(24, 17, 83, 0.75);
+  white-space: nowrap;
+  overflow: hidden;    
+  font-family: 'Source Code Pro', monospace;  
+  font-size: 28px;
+  color: rgba(255,255,255,.70);
+  margin: 0 auto;
+}
+
+/* Animation */
+h2 {
+  animation: animated-text 4s steps(29,end) 1s 1 normal both,
+             animated-cursor 600ms steps(29,end) infinite;
+}
+
+/* text animation */
+
+@keyframes animated-text{
+  from{width: 0;}
+  to{width: 100%;}
+}
+
+/* cursor animations */
+
+@keyframes animated-cursor{
+  from{border-right-color: rgba(17, 34, 56, 0.75);}
+  to{border-right-color: transparent;}
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* add cards */
+.companycard {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 16px;
+  width: 250px;
+  height: 350px;
+  margin: 10px;
+  transition: 0.3s;
   background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border:  rgba(0,0,0,0.2);
+  border-radius: 5px; /* 5px rounded corners */
 }
 
-.img1 {
-    display: block;
+.projectcard {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 16px;
+  width: 340px;
+  height: 700px;
+  margin: 10px;
+  transition: 0.3s;
+  background-color: white;
+  border:  rgba(0,0,0,0.2);
+  border-radius: 5px; /* 5px rounded corners */
+}
+
+/* Add rounded corners to the top left and the top right corner of the image */
+.cardimg {
+  border-radius: 5px 5px 0 0;
+  height: 42.8%;
+  width: 100%;
+  background-color: white;
+  border:3px solid darkgoldenrod;
+}
+
+.companyimg {
+  border-radius: 5px 5px 5px 5px;
+  height: 71.4%;
+  width: 100%;
+  background-color: white;
+
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+  height: 370px;
+  text-align: left;
+  border: rgba(0,0,0,0.2)
+}
+
+.companycontainer {
+  padding: 2px 16px;
+  height: 100px;
+  text-align: left;
+  border: rgba(0,0,0,0.2);
+  flex-wrap: wrap;
+}
+/*
+.column {
+  float: left;
+  width: 33%;
+  padding: 0 15px 15px;
+}
+
+.companycolumn {
+  float: left;
+  width: 25%;
+  padding: 0 10px 10px;
+}
+*/
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {
+    margin: 0 -5px;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ 
+
+/* Responsive columns - one column layout (vertical) on small screens 
+@media screen and (max-width: 600px) {
+  .column {
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .companycolumn {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+*/
+
+/* hover circles for leadership */
+.imagecontainer {
+  position: relative;
+  width: 210px;
 }
 
-div.container {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  padding: 10px 20px;
+/*
+.imagecolumn {
+  float: left;
+  width: 20%;
+  padding: 0 15px 15px;
+}
+*/
+
+.image {
+  display: block;
+  width:200px;
+  height:200px;
+  border-radius:50%;
 }
 
-.img2 {
-  border: 1px solid #ddd;
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  width: 200px;
   border-radius: 50%;
-  padding: 1px;
-  width: 150px;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(8, 16, 19, 0.699);
 }
 
-.img2:hover {
-  box-shadow: 0 0 2px 1px rgba(1, 140, 186, 0.5);
+.imagecontainer:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* map */
+@import url(https://fonts.googleapis.com/css?family=Arvo);
+
+h1, h5 {
+  font-family: "Georgia", serif;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h5 {
+  font-size: 30px;
+}
+
+.tb5 {
+	border:2px solid #456879;
+	border-radius:10px;
+	height: 22px;
+	width: 230px;
+}
+
+h1, h5  {
+
+  color:    #D5AD6D; /*if no support for background-clip*/
+    
+    background: -webkit-linear-gradient(transparent, transparent),
+             -webkit-linear-gradient(top, rgba(213,173,109,1) 0%, rgba(213,173,109,1) 26%, rgba(226,186,120,1) 35%, rgba(163,126,67,1) 45%, rgba(145,112,59,1) 61%, rgba(213,173,109,1) 100%);
+    background: -o-linear-gradient(transparent, transparent);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 95%;
+        margin: 0;
+        padding: 0;
+      }
+
+/*for textbox*/
+.form__group {
+	 position: relative;
+	 padding: 15px 0 0;
+	 margin-top: 10px;
+	 width: 50%;
+}
+ .form__field {
+	 font-family: inherit;
+	 width: 100%;
+	 border: 0;
+	 border-bottom: 2px solid #9b9b9b;
+	 outline: 0;
+	 font-size: 1.3rem;
+	 color: black;
+	 padding: 7px 0;
+	 background: transparent;
+	 transition: border-color 0.2s;
+}
+ .form__field::placeholder {
+	 color: transparent;
+}
+ .form__field:placeholder-shown ~ .form__label {
+	 font-size: 1.3rem;
+	 cursor: text;
+	 top: 20px;
+}
+ .form__label {
+	 position: absolute;
+	 top: 0;
+	 display: block;
+	 transition: 0.2s;
+	 font-size: 1rem;
+	 color: #9b9b9b;
+}
+ .form__field:focus {
+	 padding-bottom: 6px;
+	 font-weight: 700;
+	 border-width: 3px;
+	 border-image: linear-gradient(to right, rgba(163,126,67,1),rgba(226,186,120,1));
+	 border-image-slice: 1;
+}
+ .form__field:focus ~ .form__label {
+	 position: absolute;
+	 top: 0;
+	 display: block;
+	 transition: 0.2s;
+	 font-size: 1rem;
+	 color: rgba(163,126,67,1);
+	 font-weight: 700;
+}
+/* reset input */
+ .form__field:required, .form__field:invalid {
+	 box-shadow: none;
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: darkgoldenrod;
+  color: white;
+}
+
+/*for search box*/
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+#infowindow-content {
+  display: none;
+}
+
+#map #infowindow-content {
+  display: inline;
+}
+
+.pac-card {
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
+
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+#title {
+  color: black;
+  
+  font-size: 25px;
+  font-weight: 500;
+  padding: 6px 12px;
+}
+
+#target {
+  width: 345px;
 }
