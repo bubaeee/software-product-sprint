@@ -2,124 +2,204 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWGbdZg-j14dUFx4lLHPebPhyw15kOqcw"></script>
+    <title>Introducing Bubae !</title>
     <script src="script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWGbdZg-j14dUFx4lLHPebPhyw15kOqcw&libraries=places"></script>
+    <script scr="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
   </head>
 
-  <body onload="initMap();">
-    <div id="content">
-      <h1>Bubae's Portfolio</h1>
-      <marquee>This is Bubae's portfolio. Welcome !</marquee>
-      <img src="/images/mee.jpg" class = "img1"/>
-      <p>I'm Nigerian. I was born on the 23rd of July and I'm a Leo. I'm very patient and tolerant, and I don't get mad often. 
-          I'm 5'5.5" and I'm dark skinned. </p>
-      <p>I have worked on a robotics team at my university. I and four others made an application to aid finaicial
-          literacy in the US. I am on an augmented reality research group currently creating avatars for Mozilla Hubs </p>
-      <a href= "https://www.linkedin.com/in/ebubechukwu-bubae-nwafor-ba553a181/" >
-        <img src="/images/linkedin.png" class = "img2" alt="LinkedIn" style="width:150px" />
-      </a>
-
-      <a href= "https://github.com/bubaeee" >
-        <img src="/images/github.gif" class = "img2" alt="Github" style="width:150px" />
-      </a>
-
-      <p> </p>
-
-      <h1>College Map</h2>
-      <p>Place the icon at your college campus. I go to Georgia Tech !</p>
-      <div id="map"></div>
- 
-      <p> </p>
-
-      <h1>Personalized Quote</h1>
-      <p>Click here to see the personalized quote:</p>
-      <button onclick="addRandomGreeting()">Click on Me!</button>
-      <div id="quote-container"></div>
-      </div>
-
-      <form action="/data" method="POST">
-
-        <p>Make a Comment :)</p>
-        <textarea name="comment-input">nice to meet you</textarea>
-        <br/><br/>
-        <input type="submit" />
-      </form>
-      
-      <p> </p>
-      <p> </p>
-
-      <div class="polaroid">
-        <img src="/images/ha.JPG" class = "img1" alt="Fav Meme" style="width:100%">
-        <div class="container">
-        <p>This is my favorite meme</p>
+    <body onload="initMap();">
+        <div class="header">
+            <div class="sides">
+                <a href="/pdfs/resume.pdf" class="logo">RESUMÉ</a>
+            </div>
+            <!--might not use this
+            <div class="sides"> <a href="#" class="menu"> </a></div>
+            -->
+            <div class="sides">
+                <a  href="https://www.linkedin.com/in/ebubechukwu-bubae-nwafor-ba553a181/" class="linkedin"></a>
+                <a  href="https://github.com/bubaeee" class="github"></a>
+            </div>
+            <div class="info">
+                    <h1>BUBAE.</h1>
+                    <h4>pronounced "boo"-"bay"</h4>
+                    <h2>developer, trailblazer and problem solver</h2> <br>
+                    <h4>undergraduate computer science student at Georgia Tech, with concentrations in artificial intelligence and media</h4>
+                    <!-- moved this
+                    <div class="meta">
+                        <a  href="https://www.linkedin.com/in/ebubechukwu-bubae-nwafor-ba553a181/" target="_b" class="linkedin"></a>
+                        <a  href="https://github.com/bubaeee" target="_b" class="github"></a><br>    
+                    </div>
+                    -->
+            </div>
         </div>
-      </div>
+        <section class="content">
+            <h5><b>EXPERIENCES AND PROGRAMS</b></h5>
+            <div class= "row">
+                <div class= "companycolumn">
+                    <div class="companycard" >
+                        <img src="/images/msft.png" style= "border:3px solid darkgoldenrod" alt="Avatar" class="companyimg">
+                        <div class="companycontainer">
+                            <h3><b>Explore (Program Management and Software Engineering) Intern</b></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class= "companycolumn">
+                    <div class="companycard">
+                        <img src="/images/google.svg" style= "border:3px solid darkgoldenrod" alt="Avatar" class="companyimg">
+                        <div class="companycontainer">
+                            <h3><b>Software Product Sprint Participant</b></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class= "companycolumn">
+                    <div class="companycard" >
+                        <img src="/images/fb.jpg" style= "border:3px solid darkgoldenrod" alt="Avatar" class="companyimg">
+                        <div class="companycontainer">
+                            <h3><b>Data Challenge Finalist 2020</b></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class= "companycolumn">
+                    <div class="companycard">
+                        <img src="/images/exxon.png" style= "border:3px solid darkgoldenrod" alt="Avatar" class="companyimg">
+                        <div class="companycontainer">
+                            <h3><b>Information Technology Intern</b></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h5><b>PROJECTS</b></h5>
+            <div class="row">
+                <div class= "column">
+                    <div class="projectcard">
+                        <img src="/images/ar.png" style= "width:100%" alt="Avatar" class="cardimg">
+                        <div class="container">
+                            <h3><b>Research Assistant at Georgia Tech’s Augmented Reality Experiences Lab</b></h3>
+                            <p><span>I am interested in animation, augmented and virtual reality, so I became a research assistant at the Georgia Tech Augmented Reality Lab. 
+                                I worked on creating models of my face in Blender. This included box modeling and face carving, which gave my model a similar face structure as mine,
+                                 and adding topography similar to my real face's on my model, which made movement of my model realistic.
+                                <br>Fun Fact: If you invite me to a Mozilla Hubs meeting, you'll be able to see my (animated) face, and not one of the generic models!
+                            </span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class= "column">
+                    <div class="projectcard">
+                        <img src="/images/l2e.png" style= "width:100%" alt="Avatar" class="cardimg">
+                        <div class="container">
+                            <h3><b>Co-Founder</b></h3>
+                            <p><span>In my first year at my university, I was a member of the Grand Challenges Living Learning Community, 
+                                a community dedicated to creative and innovative thinking. I decided to work on education since that is something I am passionate about.
+                                <br>In summary, I and four others found that a good number of adults were not financially literate.
+                                We performed some behavior analysis on Georgia Tech college students which proved our hypothesis.
+                                <br>Going off this, we designed an application which we believe will curb this problem, identified potential setbacks and outlined a financial budget.</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class= "column">
+                    <div class="projectcard">
+                        <img src="/images/sudoku.png" style= "width:100%" alt="Avatar" class="cardimg">
+                        <div class="container">
+                            <h3><b>Sudoku Solver</b></h3>
+                            <p><span>I am a huge fan of sudoku (I have a collection of sudoku books, all solved), and I had some extra time on my hands so I decided to challenge myself.
+                                I implemented a sudoku solver that would solve <i>easy level</i> sudoku puzzles. <br> I made use of recursion mostly with this program, checking till there was no blank spaces left.
+                                Initially, I made use of Java only, having the user to input a 2-dimensional array of integers and then returning the result in the same fashion. 
+                                I am currently working on recreating this program using ReactJS so as to make it more user friendly. 
+                                </span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class= "column">
+                    <div class="projectcard">
+                        <img src="/images/code.png" style= "width:100%" alt="Avatar" class="cardimg">
+                        <div class="container">
+                            <h3><b>Collaborative Code Editor</b></h3>
+                            <p><span>I worked on this project with a couple of my teammates from my Software Product Sprint team. We created a code editor that allowed users
+                                write code in a selection of languages. 
+                                <br> Our editor is able to highlight keywords and variables in various colors in order to differentiate them easily.
+                                It also allows our users save and retrieve their code without refreshing the page. 
+                                Additionally, as the name implies, our editor allows multiple users work on the same piece of code.
+                                So yes, you may use our editor for your technical interviews (jk haha).
+                                <br> To work on this project, I learnt and made use of HTML, Javascript, CSS, and Ajax.
+                                </span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class= "column">
+                    <div class="projectcard">
+                        <img src="/images/sort.jpg" style= "width:100%" alt="Avatar" class="cardimg">
+                        <div class="container">
+                            <h3><b>Visualization Tool for Sorting Algorithms</b></h3>
+                            <p><span>This is a visualization tool that displays steps taken in implementing some of my favorite sorting algorithms. 
+                                I did this project as a fun way to familiarize myself with some key components of my internship at Microsoft, working on the Visual Studio team. 
+                                I'm also a huge fan of data structures and algorithm. For this project, I made use of C# and ASP .net Core, which were new to me, as well as HTML and Javascript.  <br>
+                                <br>
+                                Key Takeaway: Visual Studio is amazing!</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-      <p> </p>
-
-      <div class="polaroid">
-        <img src="/images/haha.JPG" class = "img1" alt="Fav Meme" style="width:100%">
-        <div class="container">
-        <p>The other half of the meme</p>
-        </div>
-      </div>
-
-      <p> </p>
-
-      <div class="polaroid">
-        <img src="/images/CnC.jpg" class = "img1" alt="Cookies and Cream" style="width:100%">
-        <div class="container">
-        <p>I love cookies and cream ice cream</p>
-        </div>
-      </div>
-
-      <p> </p>
-
-      <div class="polaroid">
-        <img src="/images/SF.jpg" class = "img1" alt="San Fran" style="width:100%">
-        <div class="container">
-        <p>San Francisco is my dream city</p>
-        </div>
-      </div>
-
-      <p> </p>
-
-      <div class="polaroid">
-        <img src="/images/asun.jpg" class = "img1" alt="Asun" style="width:100%">
-        <div class="container">
-        <p>I love home food. I love food period</p>
-        </div>
-      </div>
-
-      <p> </p>
-
-      <div class="polaroid">
-        <img src="/images/got.jpg" class = "img1" alt="Game of Thrones" style="width:100%">
-        <div class="container">
-        <p>Game of Thrones might be the best show on Earth</p>
-        </div>
-      </div>
-
-      <p> </p>
-
-      <div class="polaroid">
-        <img src="/images/kendrick.jpg" class = "img1" alt="Kendrick Lamar" style="width:100%">
-        <div class="container">
-        <p>I'm the biggest Kendrick Lamar fan</p>
-        </div>
-      </div>
-
-      <p> </p>
-      
-      <p>I generally love taking pictures of places I visit or pictures of my friends (because I know their angles).
-           New York is my favorite place to take pictures of but it's so busy so I find it hard to enjoy myself there.
-            San Francisco might be the best place overall for me. </p>
-
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
-      <p>Click <a href="/data">here</a> to view content generated by a servlet.</p>
-    </div>
+            <h5><b>LEADERSHIP</b></h5>
+            <div class="row">
+                <div class="imagecolumn">
+                    <div class="imagecontainer">
+                        <img src="/images/ta.png" alt="Avatar" class="image">
+                        <div class="overlay">
+                            <div class="text"><span>Graduate Teaching Assistant at Georgia Tech College of Computing</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="imagecolumn">
+                    <div class="imagecontainer">
+                        <img src="/images/ambassador.jpg" alt="Avatar" class="image" border="1">
+                        <div class="overlay">
+                            <div class="text"><span>Ambassador for Georgia Tech Grand Challenges Living Learning Community</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="imagecolumn">
+                    <div class="imagecontainer">
+                        <img src="/images/mentor.png" alt="Avatar" class="image">
+                        <div class="overlay">
+                            <div class="text"><span>Peer Mentor at Georgia Tech Center for Engineering Education and Diversity</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="imagecolumn">
+                    <div class="imagecontainer">
+                        <img src="/images/asa.png" alt="Avatar" class="image">
+                        <div class="overlay">
+                            <div class="text"><span>Social Chair for Georgia Tech African Student's Association</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="imagecolumn">
+                    <div class="imagecontainer">
+                        <img src="/images/mun.png" alt="Avatar" class="image">
+                        <div class="overlay">
+                            <div class="text"><span>Director of Economic and Social Council (Model United Nations)</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h5><b>JOIN THE FAMILY</b></h5>
+            <h4> Feel free to add your school to the map ! Simply search up your school in the search bar, and add a marker at the location of your choice by clicking on the map at that spot. </h4>
+            <h4> But first, don't forget to tell us what your name and college are.</h4>
+            <div class="form__group field">
+                <input type="input" class="form__field" placeholder="Name, College" name="title" id='title' required />
+                <label for="title" class="form__label">Name, College</label>
+            </div>
+        </section>
+        <input
+            id="pac-input"
+            class="controls"
+            type="text"
+            placeholder="Search Box"
+        />
+        <div id="map"></div>    
   </body>
 </html>
